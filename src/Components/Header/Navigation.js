@@ -27,7 +27,7 @@ class Navigation extends Component {
         <Navbar color="dark" dark expand="sm">
           <div className="container">
             <NavbarToggler onClick={this.navToggler} />
-            <NavbarBrand>mybooks</NavbarBrand>
+            <NavbarBrand href="/">mybooks</NavbarBrand>
             <Collapse
               navbar
               isOpen={this.state.isNavOpen}
@@ -35,23 +35,23 @@ class Navigation extends Component {
             >
               <Nav navbar>
                 <NavItem>
-                  <NavLink to="/" className="nav-link">
+                  <NavLink to="/" exact className="nav-link">
                     Home
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/books" className="nav-link">
+                  <NavLink to="/books" exact className="nav-link">
                     Book
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/newbook" className="nav-link">
+                  <NavLink to="/newbook" exact className="nav-link">
                     NewBook
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/contact" className="nav-link">
-                    contact
+                  <NavLink to="/contact" exact className="nav-link">
+                    Contact
                   </NavLink>
                 </NavItem>
               </Nav>
