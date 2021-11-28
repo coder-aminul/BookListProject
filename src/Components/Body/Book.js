@@ -1,12 +1,17 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Modal, ModalBody, ModalFooter } from "reactstrap";
-import BOOK from "../../Data/BookList";
 import BookDetails from "./BookDetails";
 import BookItem from "./BookItem";
 
+const mapToPops = (state) => {
+  return {
+    books: state.booklist,
+  };
+};
+
 class Book extends Component {
   state = {
-    books: BOOK,
     selecbook: null,
     modalOpen: false,
   };
@@ -24,7 +29,7 @@ class Book extends Component {
   };
   render() {
     document.title = "Book";
-    const menu = this.state.books.map((item) => {
+    const menu = this.props.books.map((item) => {
       return (
         <BookItem
           book={item}
@@ -58,4 +63,4 @@ class Book extends Component {
   }
 }
 
-export default Book;
+export default connect(mapToPops)(Book);
