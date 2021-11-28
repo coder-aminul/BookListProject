@@ -1,6 +1,7 @@
 import React from "react";
 
 const Home = () => {
+  document.title = "Book List Project";
   return (
     <div className="container">
       <div className="row">

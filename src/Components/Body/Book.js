@@ -23,6 +23,7 @@ class Book extends Component {
     });
   };
   render() {
+    document.title = "Book";
     const menu = this.state.books.map((item) => {
       return (
         <BookItem

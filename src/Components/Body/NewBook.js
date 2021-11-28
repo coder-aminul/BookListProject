@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class NewBook extends Component {
   render() {
+    document.title = "New Book";
     return (
       <div className="container">
         <div className="row">

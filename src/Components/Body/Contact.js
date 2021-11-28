@@ -24,10 +24,15 @@ class Contact extends Component {
   };
 
   onSubmit = (event) => {
-    console.log(this.state);
     event.preventDefault();
+    if (this.state === "") {
+      alert("Fiil Out!");
+    } else {
+      console.log(this.state);
+    }
   };
   render() {
+    document.title = "Contact";
     return (
       <div className="container">
         <div className="row">
