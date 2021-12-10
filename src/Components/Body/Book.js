@@ -6,7 +6,8 @@ import BookItem from "./BookItem";
 
 const mapToPops = (state) => {
   return {
-    books: state.booklist,
+    books: state.book,
+    comments: state.comment,
   };
 };
 
@@ -29,6 +30,7 @@ class Book extends Component {
   };
   render() {
     document.title = "Book";
+    console.log(this.props.books);
     const menu = this.props.books.map((item) => {
       return (
         <BookItem
@@ -41,7 +43,12 @@ class Book extends Component {
 
     let bookselect = null;
     if (this.state.selecbook != null) {
-      bookselect = <BookDetails books={this.state.selecbook} />;
+      const comment = this.props.comments.filter((comment) => {
+        return comment.bookId === this.state.selecbook.id;
+      });
+      bookselect = (
+        <BookDetails books={this.state.selecbook} comment={comment} />
+      );
     }
     return (
       <div className="container">
