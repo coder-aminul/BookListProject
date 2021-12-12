@@ -20,7 +20,7 @@ const BookDetails = (props) => {
       <hr />
       <Showcomments comments={props.comment} />
       <hr />
-      <CommentForm />
+      <CommentForm bookId={props.books.id} addComment={props.addComment} />
     </>
   );
 };

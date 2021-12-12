@@ -6,7 +6,7 @@ class CommentForm extends Component {
     super(props);
     this.state = {
       author: "",
-      rating: "05",
+      rating: "",
       comment: "",
     };
     this.onchangecommentInput = this.onchangecommentInput.bind(this);
@@ -20,7 +20,19 @@ class CommentForm extends Component {
   onsubmitComment = (event) => {
     event.preventDefault();
     console.log(this.state);
+    this.props.addComment(
+      this.props.bookId,
+      this.state.author,
+      this.state.rating,
+      this.state.comment
+    );
+    this.setState({
+      author: "",
+      rating: "",
+      comment: "",
+    });
   };
+
   render() {
     return (
       <div>

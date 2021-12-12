@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Modal, ModalBody, ModalFooter } from "reactstrap";
+import { addComment } from "../../redux/actionCreators";
 import BookDetails from "./BookDetails";
 import BookItem from "./BookItem";
 
@@ -10,7 +11,12 @@ const mapToPops = (state) => {
     comments: state.comment,
   };
 };
-
+const mapDispatcToprops = (dispatch) => {
+  return {
+    addComment: (bookId, author, rating, comment) =>
+      dispatch(addComment(bookId, author, rating, comment)),
+  };
+};
 class Book extends Component {
   state = {
     selecbook: null,
@@ -30,7 +36,6 @@ class Book extends Component {
   };
   render() {
     document.title = "Book";
-    console.log(this.props.books);
     const menu = this.props.books.map((item) => {
       return (
         <BookItem
@@ -47,7 +52,11 @@ class Book extends Component {
         return comment.bookId === this.state.selecbook.id;
       });
       bookselect = (
-        <BookDetails books={this.state.selecbook} comment={comment} />
+        <BookDetails
+          books={this.state.selecbook}
+          comment={comment}
+          addComment={this.props.addComment}
+        />
       );
     }
     return (
@@ -70,4 +79,4 @@ class Book extends Component {
   }
 }
 
-export default connect(mapToPops)(Book);
+export default connect(mapToPops, mapDispatcToprops)(Book);

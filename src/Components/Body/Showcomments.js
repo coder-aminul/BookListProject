@@ -6,9 +6,9 @@ const Showcomments = (props) => {
     return (
       <div key={comment.id}>
         <h4>{comment.author}</h4>
-        <span className="comment-date">
+        <small className="comment-date">
           {dateFormat(comment.date, "dddd, mmmm dS, yyyy, h:MM:ss TT")}
-        </span>
+        </small>
         <p>{comment.comment}</p>
         <strong>Rating: {comment.rating}</strong>
       </div>

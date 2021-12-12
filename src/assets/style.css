@@ -29,7 +29,7 @@
     background-color: #3cf593!important;
     cursor: pointer;
 }
-.home,.newbook,.contact{
+.home,.newbook,.contact,.login{
     height: 100vh;
 }
 .modal-dialog {

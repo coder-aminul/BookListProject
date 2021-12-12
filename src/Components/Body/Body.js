@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Book from "./Book";
 import Contact from "./Contact";
 import Home from "./Home";
+import LoginSingup from "./LoginandSingup";
 import NewBook from "./NewBook";
 
 const Body = () => {
@@ -12,6 +13,7 @@ const Body = () => {
       <Route path="/contact" exact component={Contact} />
       <Route path="/books" exact component={Book} />
       <Route path="/newbook" exact component={NewBook} />
+      <Route path="/login" exact component={LoginSingup} />
     </div>
   );
 };
