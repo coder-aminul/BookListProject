@@ -44,3 +44,6 @@
 .books-image>img{
     max-width: 130px;
 }
+.loader{
+    font-size: 50px;
+}

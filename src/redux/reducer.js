@@ -1,10 +1,24 @@
 import { combineReducers } from "redux";
-import BOOK from "../Data/BookList";
 import COMMENTS from "../Data/Comments";
 import * as ActionType from "./ActionType";
 
-export const bookReducer = (booksState = BOOK, action) => {
+export const bookReducer = (
+  booksState = { isLoading: false, books: [] },
+  action
+) => {
   switch (action.type) {
+    case ActionType.BOOK_LOADING:
+      return {
+        ...booksState,
+        isLoading: true,
+        books: [],
+      };
+    case ActionType.LOAD_BOOK:
+      return {
+        ...booksState,
+        isLoading: false,
+        books: action.payload,
+      };
     default:
       return booksState;
   }

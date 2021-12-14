@@ -19,7 +19,6 @@ class CommentForm extends Component {
   };
   onsubmitComment = (event) => {
     event.preventDefault();
-    console.log(this.state);
     this.props.addComment(
       this.props.bookId,
       this.state.author,
