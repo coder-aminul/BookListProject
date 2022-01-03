@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Modal, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { addComment, fetchBooks } from "../../redux/actionCreators";
 import BookDetails from "./BookDetails";
 import BookItem from "./BookItem";
@@ -77,6 +77,11 @@ class Book extends Component {
             </div>
           </div>
           <Modal isOpen={this.state.modalOpen} fullscreen="lg">
+            <ModalHeader>
+              <span className="closeModal" onClick={this.onToggleModal}>
+                &times;
+              </span>
+            </ModalHeader>
             <ModalBody>{bookselect}</ModalBody>
             <ModalFooter>
               <button className="btn btn-danger" onClick={this.onToggleModal}>

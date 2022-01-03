@@ -1,49 +1,61 @@
-.footer-section{
-    background-color: rgb(5, 0, 0);
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    
+.footer-section {
+  background-color: rgb(5, 0, 0);
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
-.footer-text{
-    transform: translateY(50%);
+.footer-text {
+  transform: translateY(50%);
 }
 
-.images{
-    max-width: 120px;
+.images {
+  max-width: 120px;
 }
-.book-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
-    grid-template-rows: minmax(85px,auto);
-    grid-auto-flow: dense;
-    grid-gap: 10px;
-    max-width: 100%;
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-rows: minmax(85px, auto);
+  grid-auto-flow: dense;
+  grid-gap: 10px;
+  max-width: 100%;
 }
-.book{
-    display: grid;
-    place-items: center;
-    text-align: center;
-    background-color: #3cf593!important;
-    cursor: pointer;
+.book {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background-color: #3cf593 !important;
+  cursor: pointer;
 }
-.home,.newbook,.contact,.login{
-    height: 100vh;
+.home,
+.newbook,
+.contact,
+.login {
+  height: 100vh;
 }
 .modal-dialog {
-    max-width: 850px;
-    margin: 1.75rem auto;
-    
+  max-width: 850px;
+  margin: 1.75rem auto;
 }
-.book-details{
-    display: flex;
+.book-details {
+  display: flex;
 }
 
-.books-image>img{
-    max-width: 130px;
+.books-image > img {
+  max-width: 130px;
 }
-.loader{
-    font-size: 50px;
+.loader {
+  font-size: 50px;
+}
+.closeModal {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: -3px;
+  margin: 0;
+  padding: 0;
+}
+.closeModal:hover {
+  color: rgba(255, 0, 0, 0.863);
 }
