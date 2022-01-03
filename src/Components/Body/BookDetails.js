@@ -1,13 +1,14 @@
 import React from "react";
 import CommentForm from "./CommentsForm";
 import Showcomments from "./Showcomments";
+import { baseURL } from "../../redux/baseURL";
 
 const BookDetails = (props) => {
   return (
     <>
       <div className="book-details">
         <div className="books-image mx-2">
-          <img src={props.books.imageLink} alt={props.books.title} />
+          <img src={baseURL + props.books.imageLink} alt={props.books.title} />
         </div>
         <div className="book-content">
           <h4>{props.books.title}</h4>

@@ -1,10 +1,11 @@
 import React from "react";
+import { baseURL } from "../../redux/baseURL";
 
 const BookItem = (props) => {
   return (
     <div className="card book">
       <img
-        src={props.book.imageLink}
+        src={baseURL + props.book.imageLink}
         alt={props.book.title}
         className="card-img-top images my-1"
       />

@@ -1,5 +1,6 @@
-import BOOK from "../Data/BookList";
 import * as ActionType from "./ActionType";
+import axios from "axios";
+import { baseURL } from "./baseURL";
 
 export const addComment = (bookId, author, rating, comment) => ({
   type: ActionType.ADD_COMMENT,
@@ -22,8 +23,8 @@ export const bookLoading = () => ({
 
 export const fetchBooks = () => (dispatch) => {
   dispatch(bookLoading());
-
-  setTimeout(() => {
-    dispatch(loadBook(BOOK));
-  }, 1000);
+  axios
+    .get(baseURL + "books")
+    .then((response) => response.data)
+    .then((books) => dispatch(loadBook(books)));
 };
