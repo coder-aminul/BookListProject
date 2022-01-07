@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import COMMENTS from "../Data/Comments";
 import * as ActionType from "./ActionType";
 
 export const bookReducer = (
@@ -24,14 +23,29 @@ export const bookReducer = (
   }
 };
 
-export const commentReducer = (commentState = COMMENTS, action) => {
+export const commentReducer = (
+  commentState = { isLoading: true, comments: [] },
+  action
+) => {
   switch (action.type) {
+    case ActionType.LOAD_COMMENTS:
+      return {
+        ...commentState,
+        isLoading: false,
+        comments: action.payload,
+      };
+    case ActionType.COMMENT_LOADDING:
+      return {
+        ...commentState,
+        isLoading: true,
+        comments: [],
+      };
     case ActionType.ADD_COMMENT:
-      let comments = action.payload;
-      comments.id = commentState.length;
-      comments.date = new Date().toDateString();
-      return commentState.concat(comments);
-
+      let comment = action.payload;
+      return {
+        ...commentState,
+        comment: commentState.comments.concat(comment),
+      };
     default:
       return commentState;
   }

@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-import { addComment, fetchBooks } from "../../redux/actionCreators";
+import {
+  addComment,
+  fetchBooks,
+  fetchComments,
+} from "../../redux/actionCreators";
 import BookDetails from "./BookDetails";
 import BookItem from "./BookItem";
 import Loader from "./Loader";
@@ -17,6 +21,7 @@ const mapDispatcToprops = (dispatch) => {
     addComment: (bookId, author, rating, comment) =>
       dispatch(addComment(bookId, author, rating, comment)),
     fecthBooks: () => dispatch(fetchBooks()),
+    fetchComments: () => dispatch(fetchComments()),
   };
 };
 
@@ -39,9 +44,10 @@ class Book extends Component {
   };
   componentDidMount() {
     this.props.fecthBooks();
+    this.props.fetchComments();
   }
   render() {
-    console.log(this.props);
+    console.log(this.props.comments.comments);
     document.title = "Book";
     if (this.props.books.isLoading) {
       return <Loader />;
@@ -58,7 +64,7 @@ class Book extends Component {
 
       let bookselect = null;
       if (this.state.selecbook != null) {
-        const comment = this.props.comments.filter((comment) => {
+        const comment = this.props.comments.comments.filter((comment) => {
           return comment.bookId === this.state.selecbook.id;
         });
         bookselect = (
@@ -66,6 +72,7 @@ class Book extends Component {
             books={this.state.selecbook}
             comment={comment}
             addComment={this.props.addComment}
+            commentIsloadding={this.props.comments.isLoading}
           />
         );
       }
